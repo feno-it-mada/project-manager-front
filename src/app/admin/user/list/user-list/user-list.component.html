@@ -1,0 +1,39 @@
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mat-cardcard">
+        <div class="mat-card-headerard-header">
+          <h5 class="mat-title">Liste des utilisateurs</h5>
+          <button class="btn btn btn-outline-info" type="button" (click)="onAdd()">Ajouter un nouvel utilisateur</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="w-100 table align-items-center table-flush">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nom d'utilisateur</th>
+                <th scope="col">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let user of users">
+                <td scope="row">{{user.username}}
+                </td>
+                <td>
+                  <div class="align-items-center">
+                    <button type="button" class="btn btn-primary"
+                            data-toggle="tooltip" title="Modifier cette ligne" (click)="onFetchOneUser(user.id)">
+                      <span class="mat"></span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="main-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="mat-card">
+        <div class="mat-card-header">
+          <h5 class="title">Ajouter un nouvel utilisateur</h5>
+        </div>
+        <div class="card-body">
+          <form #userForm="ngForm" (ngSubmit)="createUser(userForm.value)">
+            <div class="mat-action-roww">
+              <div class="col-md-3 px-1">
+                <div class="form-group">
+                  <label>Nom d'utilisateur</label>
+                  <input type="text" class="form-control" placeholder="Username" [ngModel]="utilisateur.username" name="username">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Département</label>
+                  <select  class="form-control bootstrap-select" name="department" [ngModel]="utilisateur.department">
+                    <option *ngFor="let dep of departements" [value]="dep.id">{{dep.name}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Fonction</label>
+                  <select  class="form-control bootstrap-select" name="fonction" [ngModel]="utilisateur.fonction">
+                    <option *ngFor="let fn of fonctions" [value]="fn.id">{{fn.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>Mot de passe</label>
+                  <input type="password" class="form-control" placeholder="Password" name="password" [ngModel]="utilisateur.password">
+                </div>
+              </div>
+              <div class="col-md-6 pl-1">
+                <div class="form-group">
+                  <label>Confirmer mot de passe</label>
+                  <input type="password" class="form-control" placeholder="" name="confirmPassword" [ngModel]="utilisateur.confirmPassword">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="text" class="form-control" placeholder="Adresse mail" name="email" [ngModel]="utilisateur.email">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Roles</label>
+                  <select  class="form-control bootstrap-select" multiple name="rolesId" [ngModel]="utilisateur.rolesId">
+                    <option *ngFor="let role of roles" [value]="role.id">{{role.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <button class="btn btn-outline-danger" type="button" (click)="onCancel()">Annuler</button>
+                </div>
+              </div>
+              <div class="col-md-4 px-1">
+                <div class="form-group">
+                  <button class="btn btn-secondary" type="submit">Enregistrer</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
